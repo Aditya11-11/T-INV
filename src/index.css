@@ -1180,3 +1180,36 @@ select.input-control {
   }
 }
 
+/* Sidebar Subheadings & Indentation */
+.sidebar-sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 0.75rem;
+  margin-top: 0.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav-indent {
+  font-size: 0.85rem !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.sidebar-group-toggle {
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+  text-align: left;
+}
+
+.sidebar-chevron {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+}
+
+

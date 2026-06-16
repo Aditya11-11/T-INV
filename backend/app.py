@@ -2,6 +2,9 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv() # Load variables from .env
 
 app = Flask(__name__)
 # Enable CORS for all routes (crucial for React client communication)
