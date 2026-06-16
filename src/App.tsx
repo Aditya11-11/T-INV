@@ -9,7 +9,6 @@ import {
   Search,
   Trash2,
   RefreshCw,
-  Award,
   FileText,
   Info,
   CheckCircle,
@@ -19,8 +18,7 @@ import {
   LayoutDashboard,
   Edit2,
   Menu,
-  Save,
-  ChevronDown
+  Save
 } from 'lucide-react';
 
 interface Tire {
@@ -1581,9 +1579,14 @@ export default function App() {
                 <button type="button" className="btn btn-secondary btn-xs" onClick={() => setIsAddingLocation(false)}>Cancel</button>
               </form>
             ) : (
-              <button className="btn btn-secondary btn-xs" onClick={() => setIsAddingLocation(true)} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                <Plus size={12} /> Add
-              </button>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button className="btn btn-secondary btn-xs" onClick={() => setIsAddingLocation(true)} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <Plus size={12} /> Add
+                </button>
+                <button className="btn btn-danger-outline btn-xs" onClick={(e) => handleDeleteLocation(activeLocationId, getCurrentLocationName(), e)} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }} title="Delete current location">
+                  <Trash2 size={12} /> Delete
+                </button>
+              </div>
             )}
           </div>
         </section>
