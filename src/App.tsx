@@ -135,7 +135,7 @@ const DEFAULT_SALES = (): Sale[] => [
 type AppView = 'dashboard' | 'tire-types' | 'tire-names' | 'inventory' | 'log-sale' | 'sales-logs';
 
 export default function App() {
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://t-inv-backend.onrender.com';
 
   // Navigation & UI States
   const [currentView, setCurrentView] = useState<AppView>(() => {
