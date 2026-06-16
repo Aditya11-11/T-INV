@@ -734,3 +734,449 @@ select.input-control {
   color: var(--color-text-muted);
   font-size: 0.8rem;
 }
+
+/* Sidebar and Main Layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+
+.sidebar {
+  width: 320px;
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(var(--blur-glass));
+  border-right: 1px solid var(--border-glass);
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2.5rem 3rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Sidebar Menu and Navigation Buttons */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-group-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.sidebar-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-primary);
+}
+
+.sidebar-nav-btn.active {
+  background: rgba(255, 94, 98, 0.08);
+  border-color: rgba(255, 94, 98, 0.18);
+  color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(255, 94, 98, 0.05);
+}
+
+/* Location Selector Bar */
+.location-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.location-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.location-tab {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  color: var(--color-text-secondary);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  font-family: var(--font-sans);
+}
+
+.location-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.location-tab.active {
+  background: rgba(255, 94, 98, 0.15);
+  border-color: var(--accent-primary);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 94, 98, 0.2);
+}
+
+.location-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.location-delete-btn:hover {
+  color: var(--color-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.add-location-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-input {
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  width: 160px !important;
+  margin: 0 !important;
+}
+
+.btn-xs {
+  padding: 0.35rem 0.65rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1 !important;
+  height: auto !important;
+}
+
+.location-tab.add-tab {
+  background: transparent;
+  border-style: dashed;
+  color: var(--accent-cyan);
+}
+
+.location-tab.add-tab:hover {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--accent-cyan);
+}
+
+/* Tire Type Management List in Main Panel */
+.type-management-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.type-management-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.type-add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.type-add-input {
+  margin: 0 !important;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  color: var(--color-text-primary);
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  backdrop-filter: blur(var(--blur-glass));
+  box-shadow: var(--shadow-soft);
+  transition: all 0.25s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--accent-primary);
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  backdrop-filter: blur(4px);
+}
+
+/* Responsive Tables */
+.custom-table th,
+.custom-table td {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .custom-table th,
+  .custom-table td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .custom-table th:first-child,
+  .custom-table td:first-child {
+    display: none;
+  }
+}
+
+/* Responsive Card Header */
+@media (max-width: 640px) {
+  .card-header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .card-header-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Responsiveness for Sidebar - Tablet */
+@media (max-width: 1024px) {
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid var(--border-glass);
+    border-bottom: none;
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .main-content {
+    padding: 1.5rem;
+    padding-top: 4.5rem;
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
+  }
+
+  .stat-card {
+    grid-column: span 6;
+  }
+
+  .col-5, .col-7 {
+    grid-column: span 12;
+  }
+
+  .location-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 640px) {
+  .main-content {
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+
+  .stat-card {
+    grid-column: span 12;
+    padding: 1rem;
+  }
+
+  .col-4, .col-8, .col-6, .col-5, .col-7, .col-12 {
+    grid-column: span 12;
+  }
+
+  /* Force chart panels to stack */
+  [style*="grid-column: span 7"],
+  [style*="grid-column: span 5"] {
+    grid-column: span 12 !important;
+  }
+
+  .tabs-header {
+    gap: 0.25rem;
+  }
+
+  .tab-btn {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .chart-container {
+    height: 180px;
+  }
+
+  .chart-bar-group {
+    height: 130px;
+    gap: 4px;
+  }
+
+  .form-title {
+    font-size: 1rem;
+  }
+
+  .glass-panel {
+    border-radius: var(--radius-sm);
+  }
+
+  .app-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .notification {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .brand-title {
+    font-size: 1.4rem;
+  }
+
+  .search-wrapper input {
+    width: 100% !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .main-content {
+    padding: 0.75rem;
+    padding-top: 3.5rem;
+  }
+
+  .location-bar {
+    padding: 0.75rem;
+  }
+
+  .location-bar select {
+    width: 100% !important;
+  }
+
+  .add-location-form {
+    flex-wrap: wrap;
+  }
+
+  .add-location-form input {
+    width: 100% !important;
+  }
+}
+
