@@ -4,7 +4,7 @@ export interface Tire {
   type: string;
   quantity: number;
   locationId: string;
-  createdAt: string;
+  createdAt?: string;
 }
 
 export interface Sale {

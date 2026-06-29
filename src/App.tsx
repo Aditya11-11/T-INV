@@ -22,8 +22,10 @@ import {
   Database,
   CloudLightning,
   ChevronRight,
-  ChevronDown
+  ChevronDown,
+  Download
 } from 'lucide-react';
+import { downloadExcelReport } from './excelExport';
 
 interface Tire {
   id: string;
@@ -882,6 +884,35 @@ export default function App() {
   const topSellers = getTopSellingTires();
   const maxSellerQty = Math.max(...topSellers.map(s => s.quantity), 1);
 
+  const handleDownloadReport = () => {
+    try {
+      const topModel = topSellers[0]?.name || 'N/A';
+      const topModelQty = topSellers[0]?.quantity || 0;
+      
+      downloadExcelReport(
+        filteredSales,
+        activeTires,
+        getCurrentLocationName(),
+        activeTab,
+        startStr,
+        endStr,
+        {
+          totalTiresSold,
+          totalCurrentStock,
+          lowStockCount,
+          topTireType: topTireTypeInfo.type,
+          topTireTypeQty: topTireTypeInfo.qty,
+          topTireModel: topModel,
+          topTireModelQty: topModelQty
+        }
+      );
+      triggerNotification("Excel report downloaded successfully!");
+    } catch (err: any) {
+      console.error(err);
+      triggerNotification("Failed to export Excel report.", "error");
+    }
+  };
+
   const getTypeSales = () => {
     const typeMap: { [key: string]: { type: string, quantity: number } } = {};
     tireTypes.forEach(t => {
@@ -993,6 +1024,23 @@ export default function App() {
                   <button onClick={() => setActiveTab('lastMonth')} className={`tab-btn ${activeTab === 'lastMonth' ? 'active' : ''}`}>Last Month</button>
                   <button onClick={() => setActiveTab('custom')} className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}>Custom Range</button>
                 </div>
+
+                <button 
+                  onClick={handleDownloadReport} 
+                  className="btn btn-primary" 
+                  style={{ 
+                    padding: '0.5rem 1rem', 
+                    fontSize: '0.85rem', 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.5rem',
+                    background: 'linear-gradient(135deg, #107c41 0%, #1f7244 100%)',
+                    border: 'none'
+                  }}
+                  title="Download report in Excel format"
+                >
+                  <Download size={14} /> Download Excel Report
+                </button>
               </div>
 
               {/* Custom Date Picker row */}
@@ -1533,6 +1581,23 @@ export default function App() {
             <button onClick={() => setActiveTab('lastMonth')} className={`tab-btn ${activeTab === 'lastMonth' ? 'active' : ''}`}>Last Month</button>
             <button onClick={() => setActiveTab('custom')} className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}>Custom Range</button>
           </div>
+
+          <button 
+            onClick={handleDownloadReport} 
+            className="btn btn-primary" 
+            style={{ 
+              padding: '0.5rem 1rem', 
+              fontSize: '0.85rem', 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              background: 'linear-gradient(135deg, #107c41 0%, #1f7244 100%)',
+              border: 'none'
+            }}
+            title="Download report in Excel format"
+          >
+            <Download size={14} /> Download Excel Report
+          </button>
         </div>
 
         {activeTab === 'custom' && (
